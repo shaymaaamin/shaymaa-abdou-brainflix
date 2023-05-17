@@ -9,18 +9,17 @@ function Topnav() {
         <img className="topnav__logo" src={logo} alt="Topnav Logo" />
 
         <form className="topnav__form">
-          <div className="topnav__form--flex">
+          <div className="form__field">
             <input
-              className="topnav__search"
+              className="topnav__search icon icon--search"
               type="text"
               name="search"
-              placeholder="search"
+              placeholder="Search"
             />
-            <div className="topnav__avatar1"></div>
+            <div className="topnav__avatar"></div>
           </div>
-
-          <button className="topnav__button">upload</button>
-          <div className="topnav__avatar2"></div>
+          <button className="topnav__button icon icon--upload">upload</button>
+          <div className="topnav__avatar topnav__avatar--lg"></div>
         </form>
       </div>
     </section>

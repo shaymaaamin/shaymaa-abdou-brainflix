@@ -62,4 +62,21 @@ body {
     width: 100%;
     background: $color-mercury;
   }
+
+  .page__section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0px $gutter-sm;
+
+    @include tablet {
+      flex-direction: row;
+      margin: 0px $gutter-md;
+    }
+
+    @include desktop {
+      width: 1020px;
+      margin: auto !important;
+    }
+  }
 }

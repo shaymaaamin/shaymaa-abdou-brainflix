@@ -1,33 +1,78 @@
+@import "./icons";
 @import "./mixins";
 @import "./vars";
 
-.form {
+form {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 
-  &__button {
+  .form__field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: $gutter-sm;
+
+    label {
+      color: $color-silver;
+      margin-bottom: calc($gutter-sm / 4);
+    }
+
+    input,
+    select,
+    textarea {
+      outline: 0;
+      font-family: $font-family;
+      background-color: $color-alabaster;
+      border: 1px solid $color-mercury;
+      border-radius: calc($gutter-sm / 4);
+      resize: none;
+
+      &:not(.icon) {
+        padding: 0 calc($gutter-sm / 2);
+      }
+
+      height: 2.25rem;
+      @include tablet {
+        height: 2.5rem;
+      }
+
+      &:focus {
+        outline: 2px solid $color-blue;
+      }
+
+      &:invalid,
+      &.error {
+        border-color: $color-error;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+  }
+
+  button {
     color: $color-white;
     background-color: $color-blue;
-
     text-transform: uppercase;
     text-align: center;
+    border: 0;
     cursor: pointer;
-    border: 0px;
 
     height: 2.5rem;
-    padding: 0px $gutter-sm;
-    border-radius: calc($gutter-sm / 2);
-
-    &:hover {
-      background-color: $color-darkblue;
-    }
+    padding: 0 $gutter-sm;
+    border-radius: calc($gutter-sm / 4);
 
     @include tablet {
       align-self: end;
       min-width: 9.375rem;
-      padding: 0px calc($gutter-sm * 2);
+      padding: 0 calc($gutter-sm * 2);
+    }
+
+    &:hover {
+      background-color: $color-darkblue;
     }
   }
 }

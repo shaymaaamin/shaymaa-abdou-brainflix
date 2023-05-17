@@ -1,0 +1,17 @@
+@import "./vars";
+
+.icon {
+  padding: 0 $gutter-lg;
+  background-position-y: center;
+  background-position-x: 0.5rem;
+  background-repeat: no-repeat;
+  padding-left: 2rem;
+
+  &--search {
+    background-image: url(../../assets/images/search.svg);
+  }
+
+  &--upload {
+    background-image: url(../../assets/images/upload.svg);
+  }
+}
