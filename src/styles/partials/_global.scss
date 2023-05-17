@@ -1,0 +1,65 @@
+@import "./mixins";
+@import "./fonts";
+@import "./vars";
+
+body {
+  margin: 0px;
+
+  * {
+    font-family: $font-family;
+    font-weight: $fw-regular;
+    font-size: $fs-body;
+    line-height: calc($fs-body + 0.5rem);
+  }
+
+  h1 {
+    font-weight: $fw-bold;
+    font-size: $fs-h1;
+    line-height: calc($fs-h1 + 0.5rem);
+
+    @include tablet {
+      font-size: $fs-h1-lg;
+      line-height: calc($fs-h1-lg + 0.5rem);
+    }
+  }
+
+  h2 {
+    font-weight: $fw-bold;
+    font-size: $fs-h2;
+    line-height: calc($fs-h2 + 0.313rem);
+
+    @include tablet {
+      font-size: $fs-h2-lg;
+      line-height: calc($fs-h2-lg + 0.5rem);
+    }
+  }
+
+  h3 {
+    font-weight: $fw-bold;
+    font-size: $fs-h3;
+    line-height: calc($fs-h3 + 0.5rem);
+
+    @include tablet {
+      font-size: $fs-h3;
+      line-height: calc($fs-h3 + 0.5rem);
+    }
+  }
+
+  label,
+  button {
+    font-weight: $fw-bold;
+    font-size: $fs-label;
+    line-height: calc($fs-label + 0.625rem);
+
+    @include tablet {
+      font-size: $fs-label-lg;
+      line-height: calc($fs-label-lg + 0.5rem);
+    }
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    background: $color-mercury;
+  }
+}
