@@ -9,12 +9,12 @@ function App() {
   return (
     <div className="app">
       <Topnav />
-      <VideoPlayer />
+      {/* <VideoPlayer />
       <section className="app__body">
         <VideoDescription />
         <CommentsList />
         <VideosList />
-      </section>
+      </section> */}
     </div>
   );
 }
