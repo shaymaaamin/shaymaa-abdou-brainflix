@@ -63,6 +63,12 @@ body {
     background: $color-mercury;
     margin: $gutter-sm 0;
 
+    &--vertical {
+      width: 1px;
+      height: auto;
+      align-self: stretch;
+    }
+
     &--mobile {
       @include tablet {
         display: none;
@@ -78,6 +84,7 @@ body {
 
     @include tablet {
       flex-direction: row;
+      flex-wrap: nowrap;
       margin: 0px $gutter-md;
     }
 

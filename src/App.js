@@ -17,10 +17,13 @@ function App() {
     <div className="app">
       <Topnav />
       <VideoPlayer poster={video.image} />
-      <section className="app__body">
-        <VideoDescription selectedVideo={video} />
-        <CommentsList />
-        <VideosList />
+      <section className="page__section">
+        <div>
+          <VideoDescription selectedVideo={video} />
+          <CommentsList />
+        </div>
+        <div className="divider divider--vertical"></div>
+        <VideosList videos={videos} />
       </section>
     </div>
   );

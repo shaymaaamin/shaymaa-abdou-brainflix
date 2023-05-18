@@ -1,0 +1,41 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/vars";
+
+.videos-list {
+  @include tablet {
+    margin-left: $gutter-sm;
+  }
+
+  &__title {
+    color: $color-mercury;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    margin-bottom: $gutter-sm;
+    height: 5rem;
+    width: 20rem;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-title {
+      font-weight: bold;
+      flex: 1;
+    }
+
+    &-image {
+      min-width: 8rem;
+      max-width: 0;
+      object-fit: cover;
+      border-radius: calc($gutter-sm / 4);
+      background-color: $color-mercury;
+      margin-right: $gutter-sm;
+    }
+  }
+}
