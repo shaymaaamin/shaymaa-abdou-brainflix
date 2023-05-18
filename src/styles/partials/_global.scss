@@ -61,6 +61,13 @@ body {
     height: 1px;
     width: 100%;
     background: $color-mercury;
+    margin: $gutter-sm 0;
+
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
+    }
   }
 
   .page__section {

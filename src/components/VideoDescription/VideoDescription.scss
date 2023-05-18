@@ -1,1 +1,34 @@
+@import "../../styles/partials/icons";
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/vars";
 
+.description {
+  &__title {
+    width: 100%;
+    margin: 0;
+  }
+
+  &__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &-channel {
+      font-weight: $fw-bold;
+      margin-right: $gutter-sm;
+    }
+
+    &-date,
+    &-views,
+    &-likes {
+      color: $color-silver;
+    }
+
+    &-section {
+      @include tablet {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

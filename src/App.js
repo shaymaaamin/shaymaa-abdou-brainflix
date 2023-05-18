@@ -18,7 +18,7 @@ function App() {
       <Topnav />
       <VideoPlayer poster={video.image} />
       <section className="app__body">
-        <VideoDescription />
+        <VideoDescription selectedVideo={video} />
         <CommentsList />
         <VideosList />
       </section>
