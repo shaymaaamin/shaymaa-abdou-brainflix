@@ -13,43 +13,43 @@ form {
     flex-direction: column;
     align-items: stretch;
     margin-bottom: $gutter-sm;
+  }
 
-    label {
-      color: $color-silver;
-      margin-bottom: calc($gutter-sm / 4);
+  label {
+    color: $color-silver;
+    margin-bottom: calc($gutter-sm / 4);
+  }
+
+  input,
+  select,
+  textarea {
+    outline: 0;
+    font-family: $font-family;
+    background-color: $color-alabaster;
+    border: 1px solid $color-mercury;
+    border-radius: calc($gutter-sm / 4);
+    resize: none;
+
+    &:not(.icon) {
+      padding: calc($gutter-sm / 2) $gutter-sm;
     }
 
-    input,
-    select,
-    textarea {
-      outline: 0;
-      font-family: $font-family;
-      background-color: $color-alabaster;
-      border: 1px solid $color-mercury;
-      border-radius: calc($gutter-sm / 4);
-      resize: none;
+    min-height: 2.25rem;
+    @include tablet {
+      min-height: 2.5rem;
+    }
 
-      &:not(.icon) {
-        padding: 0 calc($gutter-sm / 2);
-      }
+    &:focus {
+      outline: 2px solid $color-blue;
+    }
 
-      height: 2.25rem;
-      @include tablet {
-        height: 2.5rem;
-      }
+    &:invalid,
+    &.error {
+      border-color: $color-error;
+    }
 
-      &:focus {
-        outline: 2px solid $color-blue;
-      }
-
-      &:invalid,
-      &.error {
-        border-color: $color-error;
-      }
-
-      &::placeholder {
-        color: black;
-      }
+    &::placeholder {
+      color: black;
     }
   }
 
@@ -66,7 +66,6 @@ form {
     border-radius: calc($gutter-sm / 4);
 
     @include tablet {
-      align-self: end;
       min-width: 9.375rem;
       padding: 0 calc($gutter-sm * 2);
     }

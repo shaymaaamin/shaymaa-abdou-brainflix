@@ -6,6 +6,7 @@ body {
   margin: 0px;
 
   * {
+    box-sizing: border-box;
     font-family: $font-family;
     font-weight: $fw-regular;
     font-size: $fs-body;
@@ -83,12 +84,14 @@ body {
     margin: 0px $gutter-sm;
 
     @include tablet {
-      flex-direction: row;
+      flex-direction: column;
       flex-wrap: nowrap;
       margin: 0px $gutter-md;
     }
 
     @include desktop {
+      flex-direction: row;
+      flex-wrap: nowrap;
       width: 1020px;
       margin: auto !important;
     }
