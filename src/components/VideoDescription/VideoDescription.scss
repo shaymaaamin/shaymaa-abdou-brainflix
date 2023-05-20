@@ -33,5 +33,8 @@
   }
   &__content {
     margin-right: $gutter-sm;
+    @include tablet {
+      margin-bottom: 3rem;
+    }
   }
 }

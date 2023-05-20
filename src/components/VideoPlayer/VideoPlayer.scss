@@ -3,6 +3,10 @@
 
 .videoplayer {
   margin: $gutter-md 0;
+  @include tablet {
+    margin-top: 0;
+    margin-bottom: $gutter-md;
+  }
 
   .page__section {
     margin: 0;

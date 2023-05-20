@@ -1,7 +1,13 @@
 import "./VideosList.scss";
-function VideosList({ videos }) {
-  const listItems = videos.map((video) => (
-    <div className="videos-list__item">
+import "../../data/videos.json";
+import "../../data/video-details.json";
+function VideosList({ clickHandler, filteredVideos }) {
+  const listItems = filteredVideos.map((video) => (
+    <div
+      key={video.id}
+      className="videos-list__item"
+      onClick={() => clickHandler(video.id)}
+    >
       <img src={video.image} className="videos-list__item-image" />
       <div className="videos-list__item-content">
         <div className="videos-list__item-title">{video.title}</div>

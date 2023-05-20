@@ -1,9 +1,11 @@
+import { formatTimestamp } from "../../utils";
 import "./VideoDescription.scss";
+
 function VideoDescription({ selectedVideo }) {
-  const date = new Date(selectedVideo.timestamp).toLocaleDateString();
+  const date = formatTimestamp(selectedVideo.timestamp);
 
   return (
-    <section class="description">
+    <section className="description">
       <h1 className="description__title">{selectedVideo.title}</h1>
       <div className="divider divider--mobile"></div>
       <div className="description__info">

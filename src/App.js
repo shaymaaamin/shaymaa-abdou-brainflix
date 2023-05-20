@@ -11,19 +11,31 @@ import videoDetails from "./data/video-details.json";
 import { useState } from "react";
 
 function App() {
-  const [video, selectVideo] = useState(videoDetails[0]);
+  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
+  function clickHandler(id) {
+    const showedVideo = videoDetails.find((video) => {
+      return video.id === id;
+    });
+    setSelectedVideo(showedVideo);
+  }
+  const filteredVideos = videos.filter((video) => {
+    return video.id !== selectedVideo.id;
+  });
 
   return (
     <div className="app">
       <Topnav />
-      <VideoPlayer poster={video.image} />
+      <VideoPlayer poster={selectedVideo.image} />
       <section className="page__section">
         <div>
-          <VideoDescription selectedVideo={video} />
-          <CommentsList />
+          <VideoDescription selectedVideo={selectedVideo} />
+          <CommentsList comments={selectedVideo.comments} />
         </div>
         <div className="divider divider--vertical"></div>
-        <VideosList videos={videos} />
+        <VideosList
+          clickHandler={clickHandler}
+          filteredVideos={filteredVideos}
+        />
       </section>
     </div>
   );

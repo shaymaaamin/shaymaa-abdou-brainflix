@@ -2,7 +2,7 @@
 @import "../../styles/partials/vars";
 
 .videos-list {
-  @include tablet {
+  @include desktop {
     margin-left: $gutter-sm;
   }
 
@@ -15,8 +15,8 @@
   &__item {
     display: flex;
     margin-bottom: $gutter-sm;
-    height: 5rem;
     width: 20rem;
+    cursor: pointer;
 
     &-content {
       display: flex;
@@ -36,6 +36,7 @@
       border-radius: calc($gutter-sm / 4);
       background-color: $color-mercury;
       margin-right: $gutter-sm;
+      max-height: 4.5rem;
     }
   }
 }
