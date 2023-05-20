@@ -1,0 +1,29 @@
+@import "../../../styles/partials/mixins";
+@import "../../../styles/partials/vars";
+
+.comment {
+  display: flex;
+  margin: $gutter-sm 0px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+
+    @include desktop {
+      margin-right: $gutter-sm;
+    }
+  }
+  &__name {
+    font-weight: $fw-bold;
+  }
+  &__date {
+    margin-left: auto;
+    color: $color-silver;
+  }
+  &__content {
+    width: 100%;
+    margin-top: $gutter-sm;
+  }
+}
