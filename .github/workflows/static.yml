@@ -44,6 +44,9 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
+      
+      - name: Build Application
+        run: npm run build
           
       - name: Setup Pages
         uses: actions/configure-pages@v3
