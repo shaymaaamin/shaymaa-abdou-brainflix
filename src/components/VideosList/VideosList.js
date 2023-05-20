@@ -1,6 +1,5 @@
 import "./VideosList.scss";
-import "../../data/videos.json";
-import "../../data/video-details.json";
+
 function VideosList({ clickHandler, filteredVideos }) {
   const listItems = filteredVideos.map((video) => (
     <div
