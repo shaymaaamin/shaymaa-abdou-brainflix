@@ -1,0 +1,77 @@
+@import "./icons";
+@import "./mixins";
+@import "./vars";
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .form__field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: $gutter-sm;
+  }
+
+  label {
+    color: $color-silver;
+    margin-bottom: calc($gutter-sm / 4);
+  }
+
+  input,
+  select,
+  textarea {
+    outline: 0;
+    font-family: $font-family;
+    background-color: $color-alabaster;
+    border: 1px solid $color-mercury;
+    border-radius: calc($gutter-sm / 4);
+    resize: none;
+
+    &:not(.icon) {
+      padding: calc($gutter-sm / 2) $gutter-sm;
+    }
+
+    min-height: 2.25rem;
+    @include tablet {
+      min-height: 2.5rem;
+    }
+
+    &:focus {
+      outline: 2px solid $color-blue;
+    }
+
+    &:invalid,
+    &.error {
+      border-color: $color-error;
+    }
+
+    &::placeholder {
+      color: black;
+    }
+  }
+
+  button {
+    color: $color-white;
+    background-color: $color-blue;
+    text-transform: uppercase;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+
+    height: 2.5rem;
+    padding: 0 $gutter-sm;
+    border-radius: calc($gutter-sm / 4);
+
+    @include tablet {
+      min-width: 9.375rem;
+      padding: 0 calc($gutter-sm * 2);
+    }
+
+    &:hover {
+      background-color: $color-darkblue;
+    }
+  }
+}

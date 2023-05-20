@@ -1,0 +1,12 @@
+@import "./styles/styles.scss";
+
+.app {
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+}

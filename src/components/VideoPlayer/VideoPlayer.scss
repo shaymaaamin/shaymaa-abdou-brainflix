@@ -1,0 +1,24 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/vars";
+
+.videoplayer {
+  margin: $gutter-md 0;
+  @include tablet {
+    margin-top: 0;
+    margin-bottom: $gutter-md;
+  }
+
+  .page__section {
+    margin: 0;
+  }
+
+  &__video {
+    height: 15rem;
+
+    @include tablet {
+      height: 25rem;
+      width: 100%;
+      background: $color-darkblack;
+    }
+  }
+}
