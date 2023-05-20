@@ -7,7 +7,11 @@ function VideosList({ clickHandler, filteredVideos }) {
       className="videos-list__item"
       onClick={() => clickHandler(video.id)}
     >
-      <img src={video.image} className="videos-list__item-image" />
+      <img
+        src={video.image}
+        className="videos-list__item-image"
+        alt="video list item img"
+      />
       <div className="videos-list__item-content">
         <div className="videos-list__item-title">{video.title}</div>
         <div className="videos-list__item-channel">{video.channel}</div>
