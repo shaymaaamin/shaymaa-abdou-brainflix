@@ -25,7 +25,14 @@ function VideoDisplay({ videoId, videos }) {
       <VideoPlayer poster={selectedVideo.image} />
       <section className="page__section">
         <div>
-          <VideoDescription selectedVideo={selectedVideo} />
+          <VideoDescription
+            title={selectedVideo.title}
+            channel={selectedVideo.channel}
+            timestamp={selectedVideo.timestamp}
+            description={selectedVideo.description}
+            views={selectedVideo.views}
+            likes={selectedVideo.likes}
+          />
           <CommentsList comments={selectedVideo.comments} />
         </div>
         <div className="divider divider--vertical"></div>
