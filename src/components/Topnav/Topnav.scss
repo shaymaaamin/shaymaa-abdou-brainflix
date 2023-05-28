@@ -2,10 +2,15 @@
 @import "../../styles/partials/vars";
 
 .topnav {
-  .page__section {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $gutter-sm;
+
     @include tablet {
       flex-direction: row;
-      flex-wrap: nowrap;
+      margin-bottom: 0;
     }
   }
 
