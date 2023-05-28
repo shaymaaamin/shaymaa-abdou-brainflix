@@ -1,28 +1,22 @@
 import "./VideosList.scss";
 
-function VideosList({ clickHandler, filteredVideos }) {
-  const listItems = filteredVideos.map((video) => (
-    <div
-      key={video.id}
-      className="videos-list__item"
-      onClick={() => clickHandler(video.id)}
-    >
-      <img
-        src={video.image}
-        className="videos-list__item-image"
-        alt="video list item img"
-      />
-      <div className="videos-list__item-content">
-        <div className="videos-list__item-title">{video.title}</div>
-        <div className="videos-list__item-channel">{video.channel}</div>
-      </div>
-    </div>
-  ));
+import VideoItem from "../VideoItem/VideoItem";
 
+function VideosList({ videos }) {
   return (
     <section className="videos-list">
       <h3 className="videos-list__title">Next Videos</h3>
-      <div className="videos-list__items">{listItems}</div>
+      <div className="videos-list__items">
+        {videos.map((video) => (
+          <VideoItem
+            key={video.id}
+            id={video.id}
+            title={video.title}
+            channel={video.channel}
+            image={video.image}
+          />
+        ))}
+      </div>
     </section>
   );
 }

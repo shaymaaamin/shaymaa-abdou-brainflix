@@ -1,43 +1,32 @@
 import "./App.scss";
+
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Topnav from "./components/Topnav/Topnav";
-import CommentsList from "./components/CommentsList/CommentsList";
-import VideoDescription from "./components/VideoDescription/VideoDescription";
-import VideosList from "./components/VideosList/VideosList";
-import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 
-import videos from "./data/videos.json";
-import videoDetails from "./data/video-details.json";
+import HomePage from "./pages/HomePage/HomePage";
+import VideoPage from "./pages/VideoPage/VideoPage";
+import UploadPage from "./pages/UploadPage/UploadPage";
 
-import { useState } from "react";
+import { getVideos } from "./api";
 
 function App() {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
-  function clickHandler(id) {
-    const showedVideo = videoDetails.find((video) => {
-      return video.id === id;
-    });
-    setSelectedVideo(showedVideo);
-  }
-  const filteredVideos = videos.filter((video) => {
-    return video.id !== selectedVideo.id;
-  });
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    getVideos().then(setVideos);
+  }, []);
 
   return (
-    <div className="app">
+    <BrowserRouter>
       <Topnav />
-      <VideoPlayer poster={selectedVideo.image} />
-      <section className="page__section">
-        <div>
-          <VideoDescription selectedVideo={selectedVideo} />
-          <CommentsList comments={selectedVideo.comments} />
-        </div>
-        <div className="divider divider--vertical"></div>
-        <VideosList
-          clickHandler={clickHandler}
-          filteredVideos={filteredVideos}
-        />
-      </section>
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage videos={videos} />} />
+        <Route path="/:videoId" element={<VideoPage videos={videos} />} />
+        <Route path="/upload" element={<UploadPage />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,63 @@
+@import "../../styles/partials/vars";
+@import "../../styles/partials/forms";
+@import "../../styles/partials/icons";
+@import "../../styles/partials/fonts";
+
+.upload-page {
+  &.page__section {
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    width: 100%;
+  }
+
+  &__thumbnail {
+    @include desktop {
+      width: 25%;
+    }
+
+    &-img {
+      border-radius: calc($gutter-sm / 4);
+      @include desktop {
+        width: 100%;
+      }
+    }
+  }
+
+  &__form {
+    @include desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: space-between;
+    }
+    &-fields {
+      @include desktop {
+        width: 70%;
+      }
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: end;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: $gutter-sm;
+
+      @include desktop {
+        width: auto;
+        margin-bottom: 0;
+        margin-left: $gutter-sm;
+      }
+    }
+  }
+}
