@@ -10,6 +10,7 @@ import UploadPage from "./pages/UploadPage/UploadPage";
 import VideoPage from "./pages/VideoPage/VideoPage";
 
 import { getVideos } from "./api";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -19,14 +20,17 @@ function App() {
   }, []);
 
   return (
-    <HashRouter>
-      <Topnav />
-      <Routes>
-        <Route path="/" element={<HomePage videos={videos} />} />
-        <Route path="/videos/:videoId" element={<VideoPage videos={videos} />} />
-        <Route path="/upload" element={<UploadPage />}></Route>
-      </Routes>
-    </HashRouter>
+    <div className="app">
+      <HashRouter>
+        <Topnav />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage videos={videos} />} />
+          <Route path="/videos/:videoId" element={<VideoPage videos={videos} />} />
+          <Route path="/upload" element={<UploadPage />}></Route>
+        </Routes>
+      </HashRouter>
+    </div>
   );
 }
 
