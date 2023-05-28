@@ -12,6 +12,7 @@ function VideoDisplay({ videoId, videos }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     getVideoDetails(videoId).then(setSelectedVideo);
   }, [videoId]);
 
