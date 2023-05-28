@@ -1,7 +1,6 @@
 import "./VideoDisplay.scss";
 
 import { useEffect, useState } from "react";
-
 import { getVideoDetails } from "../../api";
 
 import CommentsList from "../CommentsList/CommentsList";
@@ -11,8 +10,6 @@ import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
 function VideoDisplay({ videoId, videos }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
-
-  const filteredVideos = videos.filter((video) => video.id !== videoId);
 
   useEffect(() => {
     getVideoDetails(videoId).then(setSelectedVideo);
@@ -31,7 +28,7 @@ function VideoDisplay({ videoId, videos }) {
           <CommentsList comments={selectedVideo.comments} />
         </div>
         <div className="divider divider--vertical"></div>
-        <VideosList filteredVideos={filteredVideos} />
+        <VideosList videos={videos.filter((video) => video.id !== videoId)} />
       </section>
     </>
   );

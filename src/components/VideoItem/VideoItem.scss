@@ -1,0 +1,32 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/vars";
+
+.video-item {
+  display: flex;
+  margin-bottom: $gutter-sm;
+  width: 20rem;
+  cursor: pointer;
+  color: $color-black;
+  text-decoration: none;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: bold;
+    flex: 1;
+  }
+
+  &__image {
+    min-width: 8rem;
+    max-width: 0;
+    object-fit: cover;
+    border-radius: calc($gutter-sm / 4);
+    background-color: $color-mercury;
+    margin-right: $gutter-sm;
+    max-height: 4.5rem;
+  }
+}
