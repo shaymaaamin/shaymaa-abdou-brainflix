@@ -1,12 +1,16 @@
-import logo from "../../assets/images/BrainFlix-logo.svg";
-
 import "./Topnav.scss";
+
+import { Link } from "react-router-dom";
+
+import logo from "../../assets/images/BrainFlix-logo.svg";
 
 function Topnav() {
   return (
     <section className="topnav">
       <div className="page__section">
-        <img className="topnav__logo" src={logo} alt="Topnav Logo" />
+        <Link to="/" className="topnav__logo-link">
+          <img className="topnav__logo" src={logo} alt="Topnav Logo" />
+        </Link>
 
         <form className="topnav__form">
           <div className="form__field">
