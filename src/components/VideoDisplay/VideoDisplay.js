@@ -6,20 +6,22 @@ import CommentsList from "../CommentsList/CommentsList";
 import VideoDescription from "../VideoDescription/VideoDescription";
 import VideosList from "../VideosList/VideosList";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import { useNavigate } from "react-router-dom";
 
-function VideoDisplay({ video, videos, videoDetails }) {
-  const [selectedVideo, setSelectedVideo] = useState(video);
+function VideoDisplay({ selectedVideo, videos }) {
+  const navigateTo = useNavigate();
 
   function clickHandler(id) {
-    const showedVideo = videoDetails.find((video) => {
-      return video.id === id;
-    });
-    setSelectedVideo(showedVideo);
+    navigateTo(`/${id}`);
   }
 
   const filteredVideos = videos.filter((video) => {
-    return video.id !== selectedVideo.id;
+    return video.id !== selectedVideo?.id;
   });
+
+  if (!selectedVideo) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
