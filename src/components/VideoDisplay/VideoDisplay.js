@@ -7,8 +7,8 @@ import VideoDescription from "../VideoDescription/VideoDescription";
 import VideosList from "../VideosList/VideosList";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
-function VideoDisplay({ videos, videoDetails }) {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
+function VideoDisplay({ video, videos, videoDetails }) {
+  const [selectedVideo, setSelectedVideo] = useState(video);
 
   function clickHandler(id) {
     const showedVideo = videoDetails.find((video) => {

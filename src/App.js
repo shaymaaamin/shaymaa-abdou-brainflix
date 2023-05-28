@@ -1,17 +1,25 @@
 import "./App.scss";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Topnav from "./components/Topnav/Topnav";
-import VideoDisplay from "./components/VideoDisplay/VideoDisplay";
+
+import HomePage from "./pages/HomePage/HomePage";
 
 import videos from "./data/videos.json";
 import videoDetails from "./data/video-details.json";
 
 function App() {
   return (
-    <div className="app">
+    <BrowserRouter>
       <Topnav />
-      <VideoDisplay videos={videos} videoDetails={videoDetails} />
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePage videos={videos} videoDetails={videoDetails} />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
