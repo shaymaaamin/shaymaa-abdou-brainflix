@@ -1,16 +1,22 @@
 import "./VideoDisplay.scss";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { getVideoDetails } from "../../api";
 
 import CommentsList from "../CommentsList/CommentsList";
 import VideoDescription from "../VideoDescription/VideoDescription";
 import VideosList from "../VideosList/VideosList";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
-function VideoDisplay({ selectedVideo, videos }) {
-  const filteredVideos = videos.filter((video) => {
-    return video.id !== selectedVideo?.id;
-  });
+function VideoDisplay({ videoId, videos }) {
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const filteredVideos = videos.filter((video) => video.id !== videoId);
+
+  useEffect(() => {
+    getVideoDetails(videoId).then(setSelectedVideo);
+  }, [videoId]);
 
   if (!selectedVideo) {
     return <div>Loading...</div>;

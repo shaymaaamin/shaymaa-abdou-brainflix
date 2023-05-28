@@ -1,6 +1,7 @@
 import "./App.scss";
 
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Topnav from "./components/Topnav/Topnav";
 
@@ -8,22 +9,21 @@ import HomePage from "./pages/HomePage/HomePage";
 import VideoPage from "./pages/VideoPage/VideoPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 
-import videos from "./data/videos.json";
-import videoDetails from "./data/video-details.json";
+import { getVideos } from "./api";
 
 function App() {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    getVideos().then(setVideos);
+  }, []);
+
   return (
     <BrowserRouter>
       <Topnav />
       <Routes>
-        <Route
-          path="/"
-          element={<HomePage videos={videos} videoDetails={videoDetails} />}
-        />
-        <Route
-          path="/:id"
-          element={<VideoPage videos={videos} videoDetails={videoDetails} />}
-        />
+        <Route path="/" element={<HomePage videos={videos} />} />
+        <Route path="/:videoId" element={<VideoPage videos={videos} />} />
         <Route path="/upload" element={<UploadPage />}></Route>
       </Routes>
     </BrowserRouter>

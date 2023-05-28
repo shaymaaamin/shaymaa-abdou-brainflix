@@ -1,9 +1,13 @@
 import VideoDisplay from "../../components/VideoDisplay/VideoDisplay";
 
-function HomePage({ videos, videoDetails }) {
-  const selectedVideo = videoDetails[0];
+function HomePage({ videos }) {
+  const videoId = videos[0]?.id;
 
-  return <VideoDisplay selectedVideo={selectedVideo} videos={videos} />;
+  if (!videoId) {
+    return <div className="page__section">Loading...</div>;
+  }
+
+  return <VideoDisplay videoId={videoId} videos={videos} />;
 }
 
 export default HomePage;
