@@ -1,18 +1,19 @@
+import { Link } from "react-router-dom";
 import "./VideosList.scss";
 
-function VideosList({ clickHandler, filteredVideos }) {
+function VideosList({ filteredVideos }) {
   const listItems = filteredVideos.map((video) => (
-    <div
-      key={video.id}
-      className="videos-list__item"
-      onClick={() => clickHandler(video.id)}
-    >
-      <img src={video.image} className="videos-list__item-image" />
+    <Link to={`/${video.id}`} key={video.id} className="videos-list__item">
+      <img
+        src={video.image}
+        className="videos-list__item-image"
+        alt="video thumbnail"
+      />
       <div className="videos-list__item-content">
         <div className="videos-list__item-title">{video.title}</div>
         <div className="videos-list__item-channel">{video.channel}</div>
       </div>
-    </div>
+    </Link>
   ));
 
   return (

@@ -17,6 +17,8 @@
     margin-bottom: $gutter-sm;
     width: 20rem;
     cursor: pointer;
+    color: $color-black;
+    text-decoration: none;
 
     &-content {
       display: flex;
