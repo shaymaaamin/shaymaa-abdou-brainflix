@@ -36,7 +36,7 @@ function Topnav() {
           </form>
         </div>
       </section>
-      <div className="divider"></div>
+      <div className="divider divider--no-margin"></div>
     </>
   );
 }

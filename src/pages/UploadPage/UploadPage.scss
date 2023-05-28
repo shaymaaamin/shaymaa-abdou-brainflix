@@ -4,24 +4,21 @@
 @import "../../styles/partials/fonts";
 
 .upload-page {
-  &.page__section {
-    flex-wrap: wrap;
-  }
-
   &__title {
     width: 100%;
   }
 
   &__thumbnail {
+    @include tablet {
+      width: 50%;
+    }
     @include desktop {
       width: 25%;
     }
 
     &-img {
+      width: 100%;
       border-radius: calc($gutter-sm / 4);
-      @include desktop {
-        width: 100%;
-      }
     }
   }
 
@@ -44,7 +41,7 @@
     display: flex;
     flex-direction: column-reverse;
 
-    @include desktop {
+    @include tablet {
       flex-direction: row;
       justify-content: end;
     }
@@ -53,9 +50,8 @@
       width: 100%;
       margin-bottom: $gutter-sm;
 
-      @include desktop {
+      @include tablet {
         width: auto;
-        margin-bottom: 0;
         margin-left: $gutter-sm;
       }
     }

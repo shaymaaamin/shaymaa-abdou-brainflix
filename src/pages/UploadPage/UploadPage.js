@@ -12,54 +12,57 @@ function UploadPage() {
   }
 
   return (
-    <section className="upload-page page__section">
-      <h1 className="upload-page__title">Upload Video</h1>
-      <form
-        className="upload-page__form"
-        onSubmit={(event) => handleSubmit(event)}
-      >
-        <div className="upload-page__thumbnail">
-          <div className="form__field">
-            <label>VIDEO THUMBNAIL</label>
-            <img
-              className="upload-page__thumbnail-img"
-              src={uploadimg}
-              alt="uploaded video thumbnail"
-            />
-          </div>
-        </div>
-        <div className="upload-page__form-fields">
-          <div className="form__field">
-            <label>TITLE YOUR VIDEO</label>
-            <input
-              type="text"
-              name="input"
-              placeholder="Add a title to your video"
-            />
-          </div>
-          <div className="form__field">
+    <section className="upload-page">
+      <div className="upload-page__wrapper">
+        <h1 className="upload-page__title">Upload Video</h1>
+        <div className="divider"></div>
+        <form
+          className="upload-page__form"
+          onSubmit={(event) => handleSubmit(event)}
+        >
+          <div className="upload-page__thumbnail">
             <div className="form__field">
-              <label>ADD A VIDEO DESCRIPTION</label>
-              <textarea
-                type="text"
-                name="inputtext"
-                placeholder="Add a description to your video"
-                rows="2"
+              <label>VIDEO THUMBNAIL</label>
+              <img
+                className="upload-page__thumbnail-img"
+                src={uploadimg}
+                alt="uploaded video thumbnail"
               />
             </div>
           </div>
-        </div>
-        <div className="divider"></div>
-        <div className="upload-page__buttons">
-          <button type="submit" className="secondary">
-            CANCEL
-          </button>
+          <div className="upload-page__form-fields">
+            <div className="form__field">
+              <label>TITLE YOUR VIDEO</label>
+              <input
+                type="text"
+                name="title"
+                placeholder="Add a title to your video"
+              />
+            </div>
+            <div className="form__field">
+              <div className="form__field">
+                <label>ADD A VIDEO DESCRIPTION</label>
+                <textarea
+                  type="text"
+                  name="description"
+                  placeholder="Add a description to your video"
+                  rows="5"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="divider"></div>
+          <div className="upload-page__buttons">
+            <button type="submit" className="secondary">
+              CANCEL
+            </button>
 
-          <button type="submit" className="icon icon--publish">
-            PUBLISH
-          </button>
-        </div>
-      </form>
+            <button type="submit" className="icon icon--publish">
+              PUBLISH
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 }

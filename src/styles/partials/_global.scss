@@ -65,6 +65,10 @@ body {
     background: $color-mercury;
     margin: $gutter-sm 0;
 
+    &--no-margin {
+      margin: 0;
+    }
+
     &--vertical {
       width: 1px;
       height: auto;
