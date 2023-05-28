@@ -23,7 +23,7 @@ function App() {
       <Topnav />
       <Routes>
         <Route path="/" element={<HomePage videos={videos} />} />
-        <Route path="/:videoId" element={<VideoPage videos={videos} />} />
+        <Route path="/videos/:videoId" element={<VideoPage videos={videos} />} />
         <Route path="/upload" element={<UploadPage />}></Route>
       </Routes>
     </BrowserRouter>
