@@ -10,20 +10,23 @@ import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
 function VideoDisplay({ videoId, videos }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    getVideoDetails(videoId).then(setSelectedVideo);
-  }, [videoId]);
+    getVideoDetails(videoId).then((data) => {
+      setSelectedVideo(data);
+      setRefresh(false);
+    });
+  }, [videoId, refresh]);
 
   if (!selectedVideo) {
-    return <div>Loading...</div>;
+    return <section>Loading...</section>;
   }
 
   return (
     <>
       <VideoPlayer poster={selectedVideo.image} />
-      <section className="page__section">
+      <section>
         <div>
           <VideoDescription
             title={selectedVideo.title}
@@ -33,7 +36,11 @@ function VideoDisplay({ videoId, videos }) {
             views={selectedVideo.views}
             likes={selectedVideo.likes}
           />
-          <CommentsList comments={selectedVideo.comments} />
+          <CommentsList
+            videoId={selectedVideo.id}
+            setRefresh={setRefresh}
+            comments={selectedVideo.comments}
+          />
         </div>
         <div className="divider divider--vertical"></div>
         <VideosList videos={videos.filter((video) => video.id !== videoId)} />

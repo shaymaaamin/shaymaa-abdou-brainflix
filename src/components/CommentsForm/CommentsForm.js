@@ -1,12 +1,25 @@
+import { addComment } from "../../api";
 import "./CommentsForm.scss";
 
-function CommentsForm() {
+function CommentsForm({ videoId, setRefresh }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const commentField = event.target.text;
+    addComment(videoId, "Shaymaa Abdou", commentField.value).then((data) => {
+      setRefresh(true);
+      commentField.value = "";
+    });
+  }
+
   return (
     <>
       <div className="comments__form-wrapper">
         <h3 className="comments__form-title">join the conversation</h3>
         <div className="comments__form-avatar avatar"></div>
-        <form className="comments__form">
+        <form
+          className="comments__form"
+          onSubmit={(event) => handleSubmit(event)}
+        >
           <textarea
             name="text"
             placeholder="Add a new comment"
