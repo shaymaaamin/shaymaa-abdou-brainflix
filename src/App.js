@@ -6,6 +6,7 @@ import Topnav from "./components/Topnav/Topnav";
 
 import HomePage from "./pages/HomePage/HomePage";
 import VideoPage from "./pages/VideoPage/VideoPage";
+import UploadPage from "./pages/UploadPage/UploadPage";
 
 import videos from "./data/videos.json";
 import videoDetails from "./data/video-details.json";
@@ -23,6 +24,7 @@ function App() {
           path="/:id"
           element={<VideoPage videos={videos} videoDetails={videoDetails} />}
         />
+        <Route path="/upload" element={<UploadPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

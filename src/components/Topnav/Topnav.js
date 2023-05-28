@@ -1,10 +1,12 @@
 import "./Topnav.scss";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logo from "../../assets/images/BrainFlix-logo.svg";
 
 function Topnav() {
+  const navigateTo = useNavigate();
+
   return (
     <section className="topnav">
       <div className="page__section">
@@ -22,7 +24,13 @@ function Topnav() {
             />
             <div className="topnav__avatar"></div>
           </div>
-          <button className="topnav__button icon icon--upload">upload</button>
+          <button
+            className="topnav__button icon icon--upload"
+            type="button"
+            onClick={() => navigateTo("/upload")}
+          >
+            upload
+          </button>
           <div className="topnav__avatar topnav__avatar--lg"></div>
         </form>
       </div>
