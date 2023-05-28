@@ -1,13 +1,13 @@
 import "./App.scss";
 
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import Topnav from "./components/Topnav/Topnav";
 
 import HomePage from "./pages/HomePage/HomePage";
-import VideoPage from "./pages/VideoPage/VideoPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
+import VideoPage from "./pages/VideoPage/VideoPage";
 
 import { getVideos } from "./api";
 
@@ -19,14 +19,14 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Topnav />
       <Routes>
         <Route path="/" element={<HomePage videos={videos} />} />
         <Route path="/videos/:videoId" element={<VideoPage videos={videos} />} />
         <Route path="/upload" element={<UploadPage />}></Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
