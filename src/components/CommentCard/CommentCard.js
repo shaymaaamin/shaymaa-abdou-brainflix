@@ -1,4 +1,4 @@
-import { formatTimestamp } from "../../../utils";
+import { formatTimestamp } from "../../utils";
 import "./CommentCard.scss";
 function CommentCard({ comment }) {
   const date = formatTimestamp(comment.timestamp);
