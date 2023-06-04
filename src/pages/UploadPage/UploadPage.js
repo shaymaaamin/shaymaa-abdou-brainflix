@@ -1,13 +1,26 @@
 import "./UploadPage.scss";
-import uploadimg from "../../assets/images/Upload-video-preview.jpg";
+
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { uploadVideo } from "../../api";
+import ImageUploader from "../../helpers/ImageUploader";
 
 function UploadPage() {
+  const [image, setImage] = useState(null);
+
   const navigateTo = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
-    alert("your video is published");
+
+    const { title, description } = event.target;
+    uploadVideo(title.value, description.value, image).then((data) => {
+      navigateTo(`/videos/${data.id}`);
+    });
+  }
+
+  function cancelUpload(event) {
+    event.preventDefault();
     navigateTo("/");
   }
 
@@ -20,16 +33,11 @@ function UploadPage() {
           className="upload-page__form"
           onSubmit={(event) => handleSubmit(event)}
         >
-          <div className="upload-page__thumbnail">
-            <div className="form__field">
-              <label>VIDEO THUMBNAIL</label>
-              <img
-                className="upload-page__thumbnail-img"
-                src={uploadimg}
-                alt="uploaded video thumbnail"
-              />
-            </div>
-          </div>
+          <ImageUploader
+            label="Video Thumbnail"
+            image={image}
+            setImage={setImage}
+          />
           <div className="upload-page__form-fields">
             <div className="form__field">
               <label>TITLE YOUR VIDEO</label>
@@ -53,7 +61,11 @@ function UploadPage() {
           </div>
           <div className="divider"></div>
           <div className="upload-page__buttons">
-            <button type="submit" className="secondary">
+            <button
+              type="button"
+              className="secondary"
+              onClick={(e) => cancelUpload(e)}
+            >
               CANCEL
             </button>
 

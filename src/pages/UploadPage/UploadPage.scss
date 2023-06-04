@@ -8,20 +8,6 @@
     width: 100%;
   }
 
-  &__thumbnail {
-    @include tablet {
-      width: 50%;
-    }
-    @include desktop {
-      width: 25%;
-    }
-
-    &-img {
-      width: 100%;
-      border-radius: calc($gutter-sm / 4);
-    }
-  }
-
   &__form {
     @include desktop {
       flex-direction: row;
