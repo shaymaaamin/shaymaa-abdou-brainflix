@@ -9,17 +9,24 @@ import VideosList from "../VideosList/VideosList";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
 function VideoDisplay({ videoId, videos }) {
+  const [error, setError] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     getVideoDetails(videoId).then((data) => {
-      setSelectedVideo(data);
-      setRefresh(false);
+      if (!data) {
+        setError(true);
+      } else {
+        setSelectedVideo(data);
+        setRefresh(false);
+      }
     });
   }, [videoId, refresh]);
 
-  if (!selectedVideo) {
+  if (error) {
+    return <section>Video not found!</section>;
+  } else if (!selectedVideo) {
     return <section>Loading...</section>;
   }
 
@@ -28,14 +35,7 @@ function VideoDisplay({ videoId, videos }) {
       <VideoPlayer poster={selectedVideo.image} />
       <section>
         <div>
-          <VideoDescription
-            title={selectedVideo.title}
-            channel={selectedVideo.channel}
-            timestamp={selectedVideo.timestamp}
-            description={selectedVideo.description}
-            views={selectedVideo.views}
-            likes={selectedVideo.likes}
-          />
+          <VideoDescription video={selectedVideo} />
           <CommentsList
             videoId={selectedVideo.id}
             setRefresh={setRefresh}
