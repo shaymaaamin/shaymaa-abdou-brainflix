@@ -1,0 +1,22 @@
+@import "../styles/partials/mixins";
+@import "../styles/partials/vars";
+
+.image-uploader {
+  &__file {
+    margin-bottom: $gutter-sm;
+  }
+
+  &__thumbnail {
+    @include tablet {
+      width: 50%;
+    }
+    @include desktop {
+      width: 25%;
+    }
+
+    &-img {
+      width: 100%;
+      border-radius: calc($gutter-sm / 4);
+    }
+  }
+}
