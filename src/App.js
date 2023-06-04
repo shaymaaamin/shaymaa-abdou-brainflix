@@ -5,12 +5,11 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 
 import Topnav from "./components/Topnav/Topnav";
 
-import HomePage from "./pages/HomePage/HomePage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import VideoPage from "./pages/VideoPage/VideoPage";
 
 import { getVideos } from "./api";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import ScrollToTop from "./helpers/ScrollToTop";
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -25,7 +24,7 @@ function App() {
         <Topnav />
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<HomePage videos={videos} />} />
+          <Route path="/" element={<VideoPage videos={videos} />} />
           <Route path="/videos/:videoId" element={<VideoPage videos={videos} />} />
           <Route path="/upload" element={<UploadPage />}></Route>
         </Routes>
